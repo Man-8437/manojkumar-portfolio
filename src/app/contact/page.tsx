@@ -19,8 +19,25 @@ export default function ContactPage() {
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
+    const formData = new FormData(formRef.current);
+    const fromName = String(formData.get("from_name") || "").trim();
+    const replyTo = String(formData.get("reply_to") || "").trim();
+    const subject = String(formData.get("subject") || `New message from ${fromName}`).trim();
+    const message = String(formData.get("message") || "").trim();
+
+    if (!fromName || !replyTo || !message) {
+      setStatus("error");
+      return;
+    }
+
     if (!serviceId || !templateId || !publicKey) {
-      setStatus("missing_env");
+      const mailtoLink = `mailto:patilmanojkumar35@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Name: ${fromName}\nEmail: ${replyTo}\n\n${message}`
+      )}`;
+
+      window.location.href = mailtoLink;
+      formRef.current.reset();
+      setStatus("fallback_mailto");
       return;
     }
 
@@ -61,10 +78,10 @@ export default function ContactPage() {
               <div className="mt-5 flex items-center gap-4">
                 <button type="submit" className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-5 py-3 text-sm font-medium text-cyan-200 transition hover:bg-cyan-500/20">Send Message</button>
                 {status === 'success' && <div className="text-green-400">Message sent — thank you!</div>}
-                {status === 'error' && <div className="text-red-400">Error sending message. Try again later.</div>}
-                {status === 'missing_env' && (
-                  <div className="text-yellow-300">Email service not configured. Provide EmailJS env vars.</div>
+                {status === 'fallback_mailto' && (
+                  <div className="text-cyan-300">Your email app has been opened with your message ready to send.</div>
                 )}
+                {status === 'error' && <div className="text-red-400">Please fill all fields and try again.</div>}
               </div>
             </form>
           </div>
