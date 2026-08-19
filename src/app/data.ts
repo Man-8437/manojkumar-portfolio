@@ -16,6 +16,134 @@ export const skills = [
 
 export const projects = [
   {
+    title: "Jersey Factory Pro",
+    description:
+      "A desktop automation tool for custom sports jersey & apparel production. Features bulk CSV/Excel order processing, dynamic garment size dimension management, live 2D customization preview, and automated batch PNG rendering.",
+    tags: ["Python", "Tkinter", "Pillow", "Desktop App", "Automation"],
+    github: "https://github.com/Man-8437/jersey-customization-app",
+    image:
+      "data:image/svg+xml;charset=UTF-8," +
+      encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+          <defs>
+            <linearGradient id="jbg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#050d1a"/>
+              <stop offset="50%" stop-color="#0b1a30"/>
+              <stop offset="100%" stop-color="#040b14"/>
+            </linearGradient>
+            <linearGradient id="jerseyGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="50%" stop-color="#06b6d4"/>
+              <stop offset="100%" stop-color="#3b82f6"/>
+            </linearGradient>
+            <linearGradient id="collarGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#1e293b"/>
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#06b6d4"/>
+              <stop offset="100%" stop-color="#818cf8"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="360" fill="url(#jbg)"/>
+          <g opacity="0.15">
+            <line x1="0" y1="90" x2="800" y2="90" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="0" y1="180" x2="800" y2="180" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="0" y1="270" x2="800" y2="270" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="260" y1="0" x2="260" y2="360" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="540" y1="0" x2="540" y2="360" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
+          </g>
+          <g transform="translate(25, 25)">
+            <rect width="215" height="310" rx="14" fill="#081426" stroke="#0ea5e9" stroke-width="1.5" opacity="0.85"/>
+            <rect width="215" height="36" rx="14" fill="#0c233c"/>
+            <text x="14" y="23" fill="#38bdf8" font-size="11" font-weight="700" font-family="Arial, sans-serif" letter-spacing="1.5">ORDER SPEC / MATRIX</text>
+            <rect x="135" y="10" width="68" height="18" rx="9" fill="#0284c7" opacity="0.3"/>
+            <text x="144" y="22" fill="#38bdf8" font-size="9" font-weight="700" font-family="Arial, sans-serif">CSV READY</text>
+            <g transform="translate(14, 52)" font-family="Arial, sans-serif">
+              <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
+              <text x="10" y="20" fill="#94a3b8" font-size="11">Pattern Type</text>
+              <text x="110" y="20" fill="#38bdf8" font-size="11" font-weight="bold">Full / Half Sleeve</text>
+              <g transform="translate(0, 40)">
+                <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
+                <text x="10" y="20" fill="#94a3b8" font-size="11">Size Matrix</text>
+                <text x="115" y="20" fill="#22d3ee" font-size="11" font-weight="bold">20 to 52 (Auto)</text>
+              </g>
+              <g transform="translate(0, 80)">
+                <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
+                <text x="10" y="20" fill="#94a3b8" font-size="11">DPI Scaling</text>
+                <text x="132" y="20" fill="#4ade80" font-size="11" font-weight="bold">300 DPI</text>
+              </g>
+              <g transform="translate(0, 120)">
+                <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
+                <text x="10" y="20" fill="#94a3b8" font-size="11">Output Format</text>
+                <text x="112" y="20" fill="#f472b6" font-size="11" font-weight="bold">Batch PNG (2D)</text>
+              </g>
+              <g transform="translate(0, 160)">
+                <rect width="187" height="52" rx="8" fill="#091b2e" stroke="#0284c7" stroke-dasharray="3 3"/>
+                <text x="12" y="22" fill="#7dd3fc" font-size="10" letter-spacing="1">QA COUNT CHECK</text>
+                <text x="12" y="42" fill="#f8fafc" font-size="16" font-weight="bold">100% Validated</text>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(255, 20)">
+            <rect width="290" height="320" rx="14" fill="#09182b" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
+            <g transform="translate(145, 165)">
+              <path d="M-42 -100 L-105 -55 L-85 -10 L-42 -45 Z" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+              <path d="M-105 -55 L-95 -30 L-85 -10" stroke="#f59e0b" stroke-width="4" fill="none"/>
+              <path d="M42 -100 L105 -55 L85 -10 L42 -45 Z" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+              <path d="M105 -55 L95 -30 L85 -10" stroke="#f59e0b" stroke-width="4" fill="none"/>
+              <path d="M-42 -100 L-42 -45 L-52 105 L52 105 L42 -45 L42 -100 C25 -90 -25 -90 -42 -100 Z" fill="url(#jerseyGrad)" stroke="#38bdf8" stroke-width="2.5"/>
+              <path d="M-28 -95 C-15 -75 15 -75 28 -95 C15 -85 -15 -85 -28 -95 Z" fill="url(#collarGrad)" stroke="#f59e0b" stroke-width="2"/>
+              <path d="M-52 65 L-48 105" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+              <path d="M-44 60 L-39 105" stroke="#f59e0b" stroke-width="3" opacity="0.9"/>
+              <path d="M52 65 L48 105" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+              <path d="M44 60 L39 105" stroke="#f59e0b" stroke-width="3" opacity="0.9"/>
+              <text x="0" y="-35" text-anchor="middle" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" font-family="'Impact', 'Arial Black', sans-serif" font-size="20" letter-spacing="3" font-weight="900">PATIL</text>
+              <text x="0" y="45" text-anchor="middle" fill="#f8fafc" stroke="#0f172a" stroke-width="4" font-family="'Impact', 'Arial Black', sans-serif" font-size="75" font-weight="900" letter-spacing="2">07</text>
+              <text x="0" y="45" text-anchor="middle" fill="#38bdf8" font-family="'Impact', 'Arial Black', sans-serif" font-size="75" font-weight="900" letter-spacing="2">07</text>
+              <line x1="-68" y1="-45" x2="-68" y2="105" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="-72" y1="-45" x2="-64" y2="-45" stroke="#38bdf8" stroke-width="1"/>
+              <line x1="-72" y1="105" x2="-64" y2="105" stroke="#38bdf8" stroke-width="1"/>
+              <text x="-80" y="35" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="Arial, sans-serif" transform="rotate(-90 -80 35)">H: 30.5"</text>
+            </g>
+            <rect x="85" y="12" width="120" height="22" rx="11" fill="#0284c7" opacity="0.9"/>
+            <text x="145" y="27" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold" font-family="Arial, sans-serif" letter-spacing="1">LIVE PREVIEW</text>
+          </g>
+          <g transform="translate(560, 25)">
+            <rect width="215" height="310" rx="14" fill="#081426" stroke="#0ea5e9" stroke-width="1.5" opacity="0.85"/>
+            <rect width="215" height="36" rx="14" fill="#0c233c"/>
+            <text x="14" y="23" fill="#38bdf8" font-size="11" font-weight="700" font-family="Arial, sans-serif" letter-spacing="1.5">CUSTOMIZATION PRO</text>
+            <g transform="translate(14, 52)" font-family="Arial, sans-serif">
+              <text x="0" y="12" fill="#94a3b8" font-size="10" letter-spacing="1">TYPOGRAPHY / OUTLINE</text>
+              <rect y="18" width="187" height="30" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
+              <text x="10" y="38" fill="#f8fafc" font-size="11" font-weight="bold">Impact / 4px Stroke</text>
+              <g transform="translate(0, 58)">
+                <text x="0" y="12" fill="#94a3b8" font-size="10" letter-spacing="1">COLOR CHANNELS</text>
+                <circle cx="15" cy="30" r="10" fill="#06b6d4" stroke="#ffffff" stroke-width="1.5"/>
+                <circle cx="42" cy="30" r="10" fill="#3b82f6" stroke="#1e293b" stroke-width="1.5"/>
+                <circle cx="69" cy="30" r="10" fill="#f59e0b" stroke="#1e293b" stroke-width="1.5"/>
+                <circle cx="96" cy="30" r="10" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+                <circle cx="123" cy="30" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+              </g>
+              <g transform="translate(0, 115)">
+                <text x="0" y="12" fill="#94a3b8" font-size="10" letter-spacing="1">PRINT SCOPE</text>
+                <rect y="18" width="58" height="24" rx="5" fill="#0284c7"/>
+                <text x="29" y="34" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Front</text>
+                <rect x="64" y="18" width="58" height="24" rx="5" fill="#0e2338" stroke="#1e3a5f"/>
+                <text x="93" y="34" text-anchor="middle" fill="#94a3b8" font-size="10">Back</text>
+                <rect x="128" y="18" width="58" height="24" rx="5" fill="#0e2338" stroke="#1e3a5f"/>
+                <text x="157" y="34" text-anchor="middle" fill="#94a3b8" font-size="10">Sleeve</text>
+              </g>
+              <g transform="translate(0, 175)">
+                <rect width="187" height="42" rx="8" fill="url(#accentGrad)"/>
+                <text x="93" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold" letter-spacing="1">⚡ EXPORT BATCH</text>
+              </g>
+            </g>
+          </g>
+        </svg>
+      `),
+  },
+  {
     title: "AI-Based Crowd Management & Abnormal Activity Detection",
     description:
       "An AI-powered surveillance system that detects crowd congestion and abnormal human activities using cameras and sensors. Sends images, videos, and live location to authorities for quick response.",
