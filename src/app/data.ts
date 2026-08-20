@@ -317,4 +317,65 @@ export const projects = [
   },
 ];
 
-// certificates list removed per request
+export const experience = [
+  {
+    role: "Python & Computer Vision Developer",
+    company: "Independent Projects & Research",
+    period: "2024 — Present",
+    description:
+      "Engineered automated desktop systems and AI surveillance prototypes, including dynamic graphics rendering pipelines (Jersey Factory Pro) and live crowd anomaly detection tools using OpenCV and Python.",
+    skills: ["Python", "OpenCV", "Tkinter", "Streamlit", "Automation"],
+  },
+  {
+    role: "Prompt Engineering & AI Workflows",
+    company: "Technical Development",
+    period: "2023 — Present",
+    description:
+      "Designed prompt architectures, LLM-assisted coding workflows, and rapid system prototypes to solve practical software engineering tasks with high precision.",
+    skills: ["Prompt Engineering", "LLM Integration", "AI Workflows", "System Design"],
+  },
+  {
+    role: "Computer Science & Systems Trainee",
+    company: "VTU / M.L.B.P Labs",
+    period: "2022 — 2024",
+    description:
+      "Developed interactive game software and core algorithmic solutions in C, Python, and Java with strong emphasis on object-oriented programming principles and system fundamentals.",
+    skills: ["C", "Java", "Data Structures", "OOP", "Git"],
+  },
+];
+
+export const certifications = [
+  {
+    title: "Python Programming & System Development",
+    issuer: "Technical Foundations",
+    year: "2024",
+    description:
+      "Mastery of core and advanced Python, object-oriented software engineering, file processing, and desktop GUI applications.",
+    category: "Software Development",
+  },
+  {
+    title: "Computer Vision & Image Processing with OpenCV",
+    issuer: "Applied Vision Lab",
+    year: "2024",
+    description:
+      "Practical implementation of video streams, contour detection, density mapping, and real-time threat detection algorithms.",
+    category: "Computer Vision",
+  },
+  {
+    title: "Prompt Engineering for Generative AI",
+    issuer: "AI Skills & Development",
+    year: "2023",
+    description:
+      "Structured prompt design, zero-shot and few-shot reasoning techniques, context optimization, and AI tool integration.",
+    category: "Artificial Intelligence",
+  },
+  {
+    title: "Diploma in Computer Science (CGPA: 8.16)",
+    issuer: "M.L.B.P Polytechnic",
+    year: "Graduated with Distinction",
+    description:
+      "Comprehensive technical foundation in computer science, software design, logic building, and database fundamentals.",
+    category: "Academic Achievement",
+  },
+];
+
