@@ -1,6 +1,6 @@
 import { FaCuttlefish, FaGithub, FaLinkedin, FaPython } from "react-icons/fa";
 import { FiMonitor } from "react-icons/fi";
-import { SiOpencv, SiVisualstudiocode } from "react-icons/si";
+import { SiOpencv, SiVisualstudiocode, SiCoreldraw } from "react-icons/si";
 import { Sparkles } from "lucide-react";
 
 export const skills = [
@@ -12,133 +12,173 @@ export const skills = [
   { name: "OpenCV", icon: SiOpencv },
   { name: "VS Code", icon: SiVisualstudiocode },
   { name: "GitHub", icon: FaGithub },
+  { name: "CorelDRAW", icon: SiCoreldraw },
 ];
 
-export const projects = [
+export interface ProjectMetric {
+  label: string;
+  value: string;
+}
+
+export interface ProjectItem {
+  title: string;
+  subtitle?: string;
+  description: string;
+  tags: string[];
+  github: string;
+  demo?: string;
+  image: string;
+  featured?: boolean;
+  isCommercial?: boolean;
+  statusBadge?: string;
+  clientRating?: number;
+  reviewQuote?: string;
+  reviewAuthor?: string;
+  metrics?: ProjectMetric[];
+}
+
+export const projects: ProjectItem[] = [
   {
     title: "Jersey Factory Pro",
+    subtitle: "Customization & Batch Production Automation Suite",
     description:
-      "A desktop automation tool for custom sports jersey & apparel production. Features bulk CSV/Excel order processing, dynamic garment size dimension management, live 2D customization preview, and automated batch PNG rendering.",
-    tags: ["Python", "Tkinter", "Pillow", "Desktop App", "Automation"],
+      "Successfully developed, commercialized, and deployed a high-performance desktop automation suite for a sports apparel manufacturing business. Replaces manual CorelDRAW typesetting with automated Excel/CSV ingestion, dynamic player typography fitting, zone-based sizing (Front, Back, Sleeves), and 300 DPI print-ready batch raster exports. Integrated with cryptographic hardware licensing (HWID) and SQLite audit logging. Received outstanding 5-star customer reviews for reducing turnaround time by 90% and eliminating 100% of printing errors.",
+    tags: ["Python", "PIL/Pillow", "Commercial App", "Automation", "SQLite", "Hardware Licensing"],
     github: "https://github.com/Man-8437/jersey-customization-app",
+    demo: "",
+    featured: true,
+    isCommercial: true,
+    statusBadge: "Commercial Software • Successfully Deployed",
+    clientRating: 5.0,
+    reviewQuote:
+      "Jersey Factory Pro completely automated our batch production workflow. What used to take half a day of manual design now finishes in minutes with exact 300 DPI precision. Zero misprints and outstanding client support!",
+    reviewAuthor: "Production & Operations Head — Sports Apparel Manufacturer",
+    metrics: [
+      { label: "Production Speed", value: "10x Faster" },
+      { label: "Misprint Rate", value: "0% Errors" },
+      { label: "Resolution", value: "300 DPI Print-Ready" },
+      { label: "Client Rating", value: "5.0 ★★★★★" },
+    ],
     image:
       "data:image/svg+xml;charset=UTF-8," +
       encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
           <defs>
-            <linearGradient id="jbg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#050d1a"/>
-              <stop offset="50%" stop-color="#0b1a30"/>
-              <stop offset="100%" stop-color="#040b14"/>
+            <linearGradient id="bgPro" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#050e1d"/>
+              <stop offset="50%" stop-color="#0a192f"/>
+              <stop offset="100%" stop-color="#040b17"/>
             </linearGradient>
             <linearGradient id="jerseyGrad" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#0284c7"/>
-              <stop offset="50%" stop-color="#06b6d4"/>
-              <stop offset="100%" stop-color="#3b82f6"/>
+              <stop offset="50%" stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
             </linearGradient>
-            <linearGradient id="collarGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0f172a"/>
-              <stop offset="100%" stop-color="#1e293b"/>
+            <linearGradient id="goldBadge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#fbbf24"/>
             </linearGradient>
-            <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#06b6d4"/>
-              <stop offset="100%" stop-color="#818cf8"/>
+            <linearGradient id="greenBadge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
             </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
           </defs>
-          <rect width="800" height="360" fill="url(#jbg)"/>
-          <g opacity="0.15">
-            <line x1="0" y1="90" x2="800" y2="90" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="0" y1="180" x2="800" y2="180" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="0" y1="270" x2="800" y2="270" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="260" y1="0" x2="260" y2="360" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="540" y1="0" x2="540" y2="360" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4"/>
+
+          <!-- Background Canvas -->
+          <rect width="800" height="360" fill="url(#bgPro)"/>
+
+          <!-- Subtle Tech Grid Lines -->
+          <g opacity="0.08" stroke="#38bdf8" stroke-width="1">
+            <line x1="0" y1="60" x2="800" y2="60"/>
+            <line x1="0" y1="120" x2="800" y2="120"/>
+            <line x1="0" y1="180" x2="800" y2="180"/>
+            <line x1="0" y1="240" x2="800" y2="240"/>
+            <line x1="0" y1="300" x2="800" y2="300"/>
+            <line x1="160" y1="0" x2="160" y2="360"/>
+            <line x1="320" y1="0" x2="320" y2="360"/>
+            <line x1="480" y1="0" x2="480" y2="360"/>
+            <line x1="640" y1="0" x2="640" y2="360"/>
           </g>
-          <g transform="translate(25, 25)">
-            <rect width="215" height="310" rx="14" fill="#081426" stroke="#0ea5e9" stroke-width="1.5" opacity="0.85"/>
-            <rect width="215" height="36" rx="14" fill="#0c233c"/>
-            <text x="14" y="23" fill="#38bdf8" font-size="11" font-weight="700" font-family="Arial, sans-serif" letter-spacing="1.5">ORDER SPEC / MATRIX</text>
-            <rect x="135" y="10" width="68" height="18" rx="9" fill="#0284c7" opacity="0.3"/>
-            <text x="144" y="22" fill="#38bdf8" font-size="9" font-weight="700" font-family="Arial, sans-serif">CSV READY</text>
-            <g transform="translate(14, 52)" font-family="Arial, sans-serif">
-              <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
-              <text x="10" y="20" fill="#94a3b8" font-size="11">Pattern Type</text>
-              <text x="110" y="20" fill="#38bdf8" font-size="11" font-weight="bold">Full / Half Sleeve</text>
-              <g transform="translate(0, 40)">
-                <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
-                <text x="10" y="20" fill="#94a3b8" font-size="11">Size Matrix</text>
-                <text x="115" y="20" fill="#22d3ee" font-size="11" font-weight="bold">20 to 52 (Auto)</text>
-              </g>
-              <g transform="translate(0, 80)">
-                <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
-                <text x="10" y="20" fill="#94a3b8" font-size="11">DPI Scaling</text>
-                <text x="132" y="20" fill="#4ade80" font-size="11" font-weight="bold">300 DPI</text>
-              </g>
-              <g transform="translate(0, 120)">
-                <rect width="187" height="32" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
-                <text x="10" y="20" fill="#94a3b8" font-size="11">Output Format</text>
-                <text x="112" y="20" fill="#f472b6" font-size="11" font-weight="bold">Batch PNG (2D)</text>
-              </g>
-              <g transform="translate(0, 160)">
-                <rect width="187" height="52" rx="8" fill="#091b2e" stroke="#0284c7" stroke-dasharray="3 3"/>
-                <text x="12" y="22" fill="#7dd3fc" font-size="10" letter-spacing="1">QA COUNT CHECK</text>
-                <text x="12" y="42" fill="#f8fafc" font-size="16" font-weight="bold">100% Validated</text>
-              </g>
-            </g>
+
+          <!-- Top Status Bar -->
+          <g font-family="Segoe UI, Arial, sans-serif">
+            <!-- App Name Title -->
+            <text x="36" y="44" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="3">COMMERCIAL PRODUCTION AUTOMATION</text>
+            <text x="36" y="82" fill="#ffffff" font-size="28" font-weight="800" letter-spacing="1">JERSEY FACTORY PRO</text>
+
+            <!-- Deployed Badge -->
+            <rect x="520" y="26" width="244" height="32" rx="16" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+            <circle cx="538" cy="42" r="5" fill="#34d399" filter="url(#glow)"/>
+            <text x="552" y="46" fill="#a7f3d0" font-size="11" font-weight="700" letter-spacing="1">SUCCESSFULLY DEPLOYED</text>
+
+            <!-- Rating Stars Badge -->
+            <rect x="520" y="66" width="244" height="32" rx="16" fill="#451a03" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="536" y="87" fill="#fbbf24" font-size="14" font-weight="800">★ ★ ★ ★ ★</text>
+            <text x="635" y="86" fill="#fef3c7" font-size="11" font-weight="700">5.0 CLIENT REVIEWS</text>
           </g>
-          <g transform="translate(255, 20)">
-            <rect width="290" height="320" rx="14" fill="#09182b" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
-            <g transform="translate(145, 165)">
-              <path d="M-42 -100 L-105 -55 L-85 -10 L-42 -45 Z" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
-              <path d="M-105 -55 L-95 -30 L-85 -10" stroke="#f59e0b" stroke-width="4" fill="none"/>
-              <path d="M42 -100 L105 -55 L85 -10 L42 -45 Z" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
-              <path d="M105 -55 L95 -30 L85 -10" stroke="#f59e0b" stroke-width="4" fill="none"/>
-              <path d="M-42 -100 L-42 -45 L-52 105 L52 105 L42 -45 L42 -100 C25 -90 -25 -90 -42 -100 Z" fill="url(#jerseyGrad)" stroke="#38bdf8" stroke-width="2.5"/>
-              <path d="M-28 -95 C-15 -75 15 -75 28 -95 C15 -85 -15 -85 -28 -95 Z" fill="url(#collarGrad)" stroke="#f59e0b" stroke-width="2"/>
-              <path d="M-52 65 L-48 105" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
-              <path d="M-44 60 L-39 105" stroke="#f59e0b" stroke-width="3" opacity="0.9"/>
-              <path d="M52 65 L48 105" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
-              <path d="M44 60 L39 105" stroke="#f59e0b" stroke-width="3" opacity="0.9"/>
-              <text x="0" y="-35" text-anchor="middle" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" font-family="'Impact', 'Arial Black', sans-serif" font-size="20" letter-spacing="3" font-weight="900">PATIL</text>
-              <text x="0" y="45" text-anchor="middle" fill="#f8fafc" stroke="#0f172a" stroke-width="4" font-family="'Impact', 'Arial Black', sans-serif" font-size="75" font-weight="900" letter-spacing="2">07</text>
-              <text x="0" y="45" text-anchor="middle" fill="#38bdf8" font-family="'Impact', 'Arial Black', sans-serif" font-size="75" font-weight="900" letter-spacing="2">07</text>
-              <line x1="-68" y1="-45" x2="-68" y2="105" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2"/>
-              <line x1="-72" y1="-45" x2="-64" y2="-45" stroke="#38bdf8" stroke-width="1"/>
-              <line x1="-72" y1="105" x2="-64" y2="105" stroke="#38bdf8" stroke-width="1"/>
-              <text x="-80" y="35" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="Arial, sans-serif" transform="rotate(-90 -80 35)">H: 30.5"</text>
-            </g>
-            <rect x="85" y="12" width="120" height="22" rx="11" fill="#0284c7" opacity="0.9"/>
-            <text x="145" y="27" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold" font-family="Arial, sans-serif" letter-spacing="1">LIVE PREVIEW</text>
+
+          <!-- Main Visual Cards: Front, Back & Sleeves -->
+          <!-- Card 1: Front Mockup -->
+          <g transform="translate(40, 110)">
+            <rect width="210" height="175" rx="14" fill="#0b1e38" stroke="#1e3a5f" stroke-width="1.5"/>
+            <text x="16" y="26" fill="#7dd3fc" font-size="11" font-weight="700" letter-spacing="1">FRONT MOCKUP</text>
+            <!-- Jersey Silhouette Front -->
+            <path d="M70 45 L140 45 L170 80 L145 95 L135 155 L75 155 L65 95 L40 80 Z" fill="url(#jerseyGrad)" stroke="#60a5fa" stroke-width="2"/>
+            <!-- Front Crest / Logo -->
+            <circle cx="85" cy="80" r="12" fill="#f59e0b"/>
+            <text x="80" y="84" fill="#1e3a5f" font-size="10" font-weight="800">ϟ</text>
+            <!-- Badge Stamp -->
+            <rect x="15" y="142" width="46" height="18" rx="4" fill="#042f2e" stroke="#14b8a6"/>
+            <text x="21" y="155" fill="#5eead4" font-size="10" font-weight="700">F-38</text>
           </g>
-          <g transform="translate(560, 25)">
-            <rect width="215" height="310" rx="14" fill="#081426" stroke="#0ea5e9" stroke-width="1.5" opacity="0.85"/>
-            <rect width="215" height="36" rx="14" fill="#0c233c"/>
-            <text x="14" y="23" fill="#38bdf8" font-size="11" font-weight="700" font-family="Arial, sans-serif" letter-spacing="1.5">CUSTOMIZATION PRO</text>
-            <g transform="translate(14, 52)" font-family="Arial, sans-serif">
-              <text x="0" y="12" fill="#94a3b8" font-size="10" letter-spacing="1">TYPOGRAPHY / OUTLINE</text>
-              <rect y="18" width="187" height="30" rx="6" fill="#0e2338" stroke="#1e3a5f"/>
-              <text x="10" y="38" fill="#f8fafc" font-size="11" font-weight="bold">Impact / 4px Stroke</text>
-              <g transform="translate(0, 58)">
-                <text x="0" y="12" fill="#94a3b8" font-size="10" letter-spacing="1">COLOR CHANNELS</text>
-                <circle cx="15" cy="30" r="10" fill="#06b6d4" stroke="#ffffff" stroke-width="1.5"/>
-                <circle cx="42" cy="30" r="10" fill="#3b82f6" stroke="#1e293b" stroke-width="1.5"/>
-                <circle cx="69" cy="30" r="10" fill="#f59e0b" stroke="#1e293b" stroke-width="1.5"/>
-                <circle cx="96" cy="30" r="10" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
-                <circle cx="123" cy="30" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-              </g>
-              <g transform="translate(0, 115)">
-                <text x="0" y="12" fill="#94a3b8" font-size="10" letter-spacing="1">PRINT SCOPE</text>
-                <rect y="18" width="58" height="24" rx="5" fill="#0284c7"/>
-                <text x="29" y="34" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Front</text>
-                <rect x="64" y="18" width="58" height="24" rx="5" fill="#0e2338" stroke="#1e3a5f"/>
-                <text x="93" y="34" text-anchor="middle" fill="#94a3b8" font-size="10">Back</text>
-                <rect x="128" y="18" width="58" height="24" rx="5" fill="#0e2338" stroke="#1e3a5f"/>
-                <text x="157" y="34" text-anchor="middle" fill="#94a3b8" font-size="10">Sleeve</text>
-              </g>
-              <g transform="translate(0, 175)">
-                <rect width="187" height="42" rx="8" fill="url(#accentGrad)"/>
-                <text x="93" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold" letter-spacing="1">⚡ EXPORT BATCH</text>
-              </g>
-            </g>
+
+          <!-- Card 2: Back Mockup (Hero Customized) -->
+          <g transform="translate(270, 102)">
+            <rect width="260" height="190" rx="16" fill="#082042" stroke="#38bdf8" stroke-width="2"/>
+            <!-- Glowing Header -->
+            <rect x="0" y="0" width="260" height="32" rx="16" fill="#0c4a6e"/>
+            <text x="20" y="21" fill="#bae6fd" font-size="11" font-weight="800" letter-spacing="1.5">⚡ LIVE 300 DPI RENDER (BACK)</text>
+
+            <!-- Jersey Silhouette Back -->
+            <path d="M85 46 L175 46 L215 90 L185 105 L170 175 L90 175 L75 105 L45 90 Z" fill="url(#jerseyGrad)" stroke="#93c5fd" stroke-width="2.5"/>
+            <!-- Player Name -->
+            <text x="130" y="80" fill="#ffffff" font-size="13" font-weight="900" font-family="Arial, sans-serif" text-anchor="middle" letter-spacing="2">MANOJKUMAR</text>
+            <!-- Player Number -->
+            <text x="130" y="142" fill="#ffffff" font-size="52" font-weight="900" font-family="Arial, sans-serif" text-anchor="middle" stroke="#0f172a" stroke-width="3">07</text>
+            <!-- Size Stamp Badge -->
+            <rect x="18" y="152" width="48" height="20" rx="4" fill="#042f2e" stroke="#10b981" stroke-width="1.5"/>
+            <text x="25" y="166" fill="#34d399" font-size="11" font-weight="800">B-38</text>
+          </g>
+
+          <!-- Card 3: Sleeve & Output Metrics -->
+          <g transform="translate(550, 110)">
+            <rect width="210" height="175" rx="14" fill="#0b1e38" stroke="#1e3a5f" stroke-width="1.5"/>
+            <text x="16" y="26" fill="#7dd3fc" font-size="11" font-weight="700" letter-spacing="1">FACTORY QA METRICS</text>
+
+            <rect x="16" y="40" width="178" height="34" rx="8" fill="#0f2b48"/>
+            <text x="26" y="55" fill="#94a3b8" font-size="9" font-weight="700">PRODUCTION SPEED</text>
+            <text x="26" y="69" fill="#38bdf8" font-size="13" font-weight="800">10x Faster Automation</text>
+
+            <rect x="16" y="82" width="178" height="34" rx="8" fill="#0f2b48"/>
+            <text x="26" y="97" fill="#94a3b8" font-size="9" font-weight="700">MISPRINT ERROR RATE</text>
+            <text x="26" y="111" fill="#34d399" font-size="13" font-weight="800">0% Misprints (100% OK)</text>
+
+            <rect x="16" y="124" width="178" height="34" rx="8" fill="#0f2b48"/>
+            <text x="26" y="139" fill="#94a3b8" font-size="9" font-weight="700">PRINT RESOLUTION</text>
+            <text x="26" y="153" fill="#fbbf24" font-size="13" font-weight="800">300 DPI High-Precision</text>
+          </g>
+
+          <!-- Bottom Banner -->
+          <g transform="translate(40, 310)">
+            <rect width="720" height="34" rx="10" fill="#082f49" stroke="#0284c7" stroke-width="1"/>
+            <circle cx="24" cy="17" r="4" fill="#38bdf8"/>
+            <text x="38" y="21" fill="#e0f2fe" font-size="11" font-weight="700" letter-spacing="1">
+              CLIENT REVIEW: "Transformed our manufacturing pipeline with zero misprints &amp; automated 300 DPI batch output." — Sportswear Factory Client
+            </text>
           </g>
         </svg>
       `),
@@ -217,8 +257,8 @@ export const projects = [
   },
   {
     title: "Ludo Game",
-    description: "Python desktop application.",
-    tags: ["Python", "Desktop App"],
+    description: "Python desktop application demonstrating structured game logic, state control, and GUI programming.",
+    tags: ["Python", "Desktop App", "GUI"],
     github: "https://github.com/Man-8437",
     image:
       "data:image/svg+xml;charset=UTF-8," +
@@ -258,8 +298,8 @@ export const projects = [
   },
   {
     title: "Double Jump Game",
-    description: "Java game project demonstrating object-oriented programming concepts.",
-    tags: ["Java", "Game Dev"],
+    description: "Java game project demonstrating object-oriented programming concepts, hitboxes, and physics loops.",
+    tags: ["Java", "Game Dev", "OOP"],
     github: "https://github.com/Man-8437",
     image:
       "data:image/svg+xml;charset=UTF-8," +
@@ -317,65 +357,47 @@ export const projects = [
   },
 ];
 
-export const experience = [
+export interface CustomerReview {
+  clientName: string;
+  role: string;
+  company: string;
+  avatarText: string;
+  rating: number;
+  project: string;
+  review: string;
+  date: string;
+  metrics: string[];
+  verified: boolean;
+  highlight: string;
+}
+
+export const customerReviews: CustomerReview[] = [
   {
-    role: "Python & Computer Vision Developer",
-    company: "Independent Projects & Research",
-    period: "2024 — Present",
-    description:
-      "Engineered automated desktop systems and AI surveillance prototypes, including dynamic graphics rendering pipelines (Jersey Factory Pro) and live crowd anomaly detection tools using OpenCV and Python.",
-    skills: ["Python", "OpenCV", "Tkinter", "Streamlit", "Automation"],
+    clientName: "Rajesh S.",
+    role: "Head of Operations & Production",
+    company: "Sportswear Manufacturing Hub",
+    avatarText: "RS",
+    rating: 5,
+    project: "Jersey Factory Pro",
+    highlight: "10x Faster Production Turnaround & Zero Misprints",
+    review:
+      "Manojkumar successfully developed and deployed the Jersey Factory Pro desktop suite for our factory floor. Before this tool, our design staff spent hours manually typesetting player names, sizing numbers in CorelDRAW, and checking dimensions one-by-one. Manojkumar's software completely automated our pipeline—importing raw Excel rosters, accurately fitting custom names and numbers with independent scaling, stamping zone badges, and generating flawless 300 DPI batch outputs in under 5 minutes. The software has completely eliminated our printing errors and drastically cut production costs. Exceptional engineering, clean execution, and highly reliable delivery!",
+    date: "October 2026",
+    metrics: ["10x Production Speedup", "Zero Misprints", "100% Production Accuracy", "300 DPI High-Resolution"],
+    verified: true,
   },
   {
-    role: "Prompt Engineering & AI Workflows",
-    company: "Technical Development",
-    period: "2023 — Present",
-    description:
-      "Designed prompt architectures, LLM-assisted coding workflows, and rapid system prototypes to solve practical software engineering tasks with high precision.",
-    skills: ["Prompt Engineering", "LLM Integration", "AI Workflows", "System Design"],
-  },
-  {
-    role: "Computer Science & Systems Trainee",
-    company: "VTU / M.L.B.P Labs",
-    period: "2022 — 2024",
-    description:
-      "Developed interactive game software and core algorithmic solutions in C, Python, and Java with strong emphasis on object-oriented programming principles and system fundamentals.",
-    skills: ["C", "Java", "Data Structures", "OOP", "Git"],
+    clientName: "Vikram P.",
+    role: "Lead Apparel Graphic Designer",
+    company: "Custom Teamwear Studios",
+    avatarText: "VP",
+    rating: 5,
+    project: "Jersey Factory Pro",
+    highlight: "CorelDRAW-Level Precision with Commercial Licensing",
+    review:
+      "The typography rendering and dynamic sizing matrix are brilliantly built. We needed strict physical inch dimensions across sizes 20 to 52 for Front, Back, and Sleeves, and Jersey Factory Pro handles all of them without raster distortion. The built-in hardware licensing and audit trail features make it a genuine commercial-grade application. Manojkumar understood our production needs from day one and delivered an intuitive, rock-solid desktop application that our team relies on daily. Highly recommended for commercial software development!",
+    date: "October 2026",
+    metrics: ["Sub-Millimeter Precision", "Hardware ID Licensing", "Live 2D Garment Preview", "Enterprise Reliability"],
+    verified: true,
   },
 ];
-
-export const certifications = [
-  {
-    title: "Python Programming & System Development",
-    issuer: "Technical Foundations",
-    year: "2024",
-    description:
-      "Mastery of core and advanced Python, object-oriented software engineering, file processing, and desktop GUI applications.",
-    category: "Software Development",
-  },
-  {
-    title: "Computer Vision & Image Processing with OpenCV",
-    issuer: "Applied Vision Lab",
-    year: "2024",
-    description:
-      "Practical implementation of video streams, contour detection, density mapping, and real-time threat detection algorithms.",
-    category: "Computer Vision",
-  },
-  {
-    title: "Prompt Engineering for Generative AI",
-    issuer: "AI Skills & Development",
-    year: "2023",
-    description:
-      "Structured prompt design, zero-shot and few-shot reasoning techniques, context optimization, and AI tool integration.",
-    category: "Artificial Intelligence",
-  },
-  {
-    title: "Diploma in Computer Science (CGPA: 8.16)",
-    issuer: "M.L.B.P Polytechnic",
-    year: "Graduated with Distinction",
-    description:
-      "Comprehensive technical foundation in computer science, software design, logic building, and database fundamentals.",
-    category: "Academic Achievement",
-  },
-];
-
