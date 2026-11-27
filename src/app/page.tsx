@@ -7,6 +7,11 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Star, ShieldCheck, Zap } from "lucide-react";
 import PageHeader from "./PageHeader";
+import AboutSection from "./sections/AboutSection";
+import EducationSection from "./sections/EducationSection";
+import SkillsSection from "./sections/SkillsSection";
+import ProjectsSection from "./sections/ProjectsSection";
+import ContactSection from "./sections/ContactSection";
 
 const typingText = "Python Developer | Prompt Engineer | OpenCV Enthusiast";
 
@@ -29,16 +34,16 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#030712] text-slate-100">
-      <div className="mx-auto flex max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8">
         <PageHeader />
 
-        <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-8 shadow-2xl shadow-cyan-500/10 sm:p-12 lg:p-16">
+        <section id="home" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-8 shadow-2xl shadow-cyan-500/10 sm:p-12 lg:p-16">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.1),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(168,85,247,0.15),_transparent_35%)]" />
           <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               {/* Commercial Success Callout Pill */}
               <Link
-                href="/projects"
+                href="#projects"
                 className="group mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
               >
                 <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -57,10 +62,10 @@ export default function Home() {
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/contact" className="rounded-full border border-cyan-400/40 bg-cyan-500/10 px-5 py-3 text-sm font-medium text-cyan-200 transition hover:bg-cyan-500/20">
+                <Link href="#contact" className="rounded-full border border-cyan-400/40 bg-cyan-500/10 px-5 py-3 text-sm font-medium text-cyan-200 transition hover:bg-cyan-500/20">
                   Let&apos;s Connect
                 </Link>
-                <Link href="/projects" className="rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-slate-200 transition hover:border-cyan-400/30 hover:text-cyan-200">
+                <Link href="#projects" className="rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-slate-200 transition hover:border-cyan-400/30 hover:text-cyan-200">
                   Explore Projects &amp; Reviews
                 </Link>
               </div>
@@ -107,6 +112,11 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+        <AboutSection />
+        <EducationSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
       </div>
     </main>
   );

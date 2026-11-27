@@ -11,6 +11,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+The portfolio is a single scrolling page. Use the sticky navigation to jump between Home, About, Education, Skills, Projects, and Contact.
+
 ## EmailJS setup for contact form
 
 To receive form messages in your email, configure EmailJS with your Gmail account.
