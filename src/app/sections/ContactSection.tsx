@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import ScrollReveal from "../ScrollReveal";
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -54,6 +55,7 @@ export default function ContactSection() {
   return (
         <section id="contact" className="scroll-mt-28 rounded-[1.5rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <ScrollReveal>
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Contact</p>
               <h2 className="mt-3 text-3xl font-semibold">Let&apos;s build something impactful.</h2>
@@ -64,6 +66,8 @@ export default function ContactSection() {
                 <a href="https://www.linkedin.com/in/manoj-kumar-patil-a0a314284" target="_blank" rel="noreferrer" className="flex items-center gap-3 transition hover:text-cyan-300"><FaLinkedin className="h-5 w-5" /> LinkedIn</a>
               </div>
             </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
             <form ref={formRef} onSubmit={handleSubmit} className="rounded-[1.25rem] border border-white/10 bg-slate-950/40 p-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 <input name="from_name" required className="rounded-xl border border-white/10 bg-slate-900/70 px-4 py-3" placeholder="Name" />
@@ -80,6 +84,7 @@ export default function ContactSection() {
                 {status === 'error' && <div className="text-red-400">Please fill all fields and try again.</div>}
               </div>
             </form>
+            </ScrollReveal>
           </div>
         </section>
   );

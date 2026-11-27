@@ -265,34 +265,50 @@ export const projects: ProjectItem[] = [
       encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
           <defs>
-            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#362115"/>
-              <stop offset="100%" stop-color="#20130f"/>
+            <linearGradient id="ludo-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#111a28"/>
+              <stop offset="100%" stop-color="#080d16"/>
             </linearGradient>
+            <linearGradient id="ludo-board" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1b2635"/>
+              <stop offset="100%" stop-color="#121b28"/>
+            </linearGradient>
+            <filter id="ludo-shadow" x="-20%" y="-20%" width="140%" height="150%">
+              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#02050a" flood-opacity=".5"/>
+            </filter>
           </defs>
-          <rect width="800" height="360" fill="url(#bg)"/>
-          <rect x="110" y="30" width="580" height="300" rx="24" fill="#2c1d12" stroke="#d9a441" stroke-width="5"/>
-          <rect x="110" y="30" width="220" height="110" rx="16" fill="#1a6a38"/>
-          <rect x="470" y="30" width="220" height="110" rx="16" fill="#9d1d20"/>
-          <rect x="110" y="220" width="220" height="110" rx="16" fill="#f2b93d"/>
-          <rect x="470" y="220" width="220" height="110" rx="16" fill="#2d5cb8"/>
-          <rect x="240" y="140" width="120" height="80" rx="10" fill="#b8732d"/>
-          <rect x="440" y="140" width="120" height="80" rx="10" fill="#b8732d"/>
-          <rect x="330" y="60" width="140" height="120" rx="10" fill="#1b1b1b" opacity="0.25"/>
-          <rect x="330" y="180" width="140" height="120" rx="10" fill="#1b1b1b" opacity="0.25"/>
-          <path d="M110 140 H690 M400 30 V330" stroke="#d9a441" stroke-width="6"/>
-          <path d="M110 180 H690 M240 30 V330 M560 30 V330" stroke="#d9a441" stroke-width="4" opacity="0.8"/>
-          <path d="M330 30 V330 M470 30 V330" stroke="#d9a441" stroke-width="4" opacity="0.8"/>
-          <circle cx="185" cy="95" r="26" fill="#d6f1d5" stroke="#7ca86f" stroke-width="4"/>
-          <circle cx="615" cy="95" r="26" fill="#fbd4d4" stroke="#d36b61" stroke-width="4"/>
-          <circle cx="185" cy="265" r="26" fill="#f9ddb0" stroke="#d9a441" stroke-width="4"/>
-          <circle cx="615" cy="265" r="26" fill="#d8e4ff" stroke="#6d8edf" stroke-width="4"/>
-          <text x="350" y="200" fill="#f5d67f" font-size="36" font-weight="700" font-family="Arial, sans-serif">LUDO</text>
-          <circle cx="240" cy="90" r="18" fill="#e1f2e5"/>
-          <circle cx="560" cy="90" r="18" fill="#f7dede"/>
-          <circle cx="240" cy="270" r="18" fill="#f7e7c2"/>
-          <circle cx="560" cy="270" r="18" fill="#ddedff"/>
-          <circle cx="400" cy="180" r="16" fill="#f4d572"/>
+          <rect width="800" height="360" fill="url(#ludo-bg)"/>
+          <circle cx="140" cy="70" r="100" fill="#24c78b" opacity=".06"/>
+          <circle cx="690" cy="285" r="130" fill="#639dff" opacity=".07"/>
+          <g filter="url(#ludo-shadow)">
+            <rect x="250" y="31" width="300" height="298" rx="22" fill="url(#ludo-board)" stroke="#344255" stroke-width="2"/>
+            <rect x="266" y="47" width="104" height="104" rx="14" fill="#163e35" stroke="#2c9b72"/>
+            <rect x="430" y="47" width="104" height="104" rx="14" fill="#48242c" stroke="#c75b68"/>
+            <rect x="266" y="209" width="104" height="104" rx="14" fill="#4a3920" stroke="#d9a84d"/>
+            <rect x="430" y="209" width="104" height="104" rx="14" fill="#20375b" stroke="#6196ed"/>
+            <rect x="370" y="47" width="60" height="266" fill="#202c3a"/>
+            <rect x="266" y="151" width="268" height="58" fill="#202c3a"/>
+            <path d="M370 151 L400 180 L370 209 Z" fill="#4a3920"/>
+            <path d="M430 151 L400 180 L430 209 Z" fill="#48242c"/>
+            <path d="M370 151 L400 121 L430 151 Z" fill="#163e35"/>
+            <path d="M370 209 L400 239 L430 209 Z" fill="#20375b"/>
+            <path d="M386 151 L400 166 L414 151 M386 209 L400 194 L414 209 M370 166 L385 180 L370 194 M430 166 L415 180 L430 194"
+              fill="none" stroke="#6d7f93" stroke-width="2"/>
+            <circle cx="293" cy="75" r="10" fill="#d9eee5"/>
+            <circle cx="343" cy="75" r="10" fill="#d9eee5"/>
+            <circle cx="457" cy="75" r="10" fill="#f2dfe1"/>
+            <circle cx="507" cy="75" r="10" fill="#f2dfe1"/>
+            <circle cx="293" cy="285" r="10" fill="#f3e7c8"/>
+            <circle cx="343" cy="285" r="10" fill="#f3e7c8"/>
+            <circle cx="457" cy="285" r="10" fill="#dce8fa"/>
+            <circle cx="507" cy="285" r="10" fill="#dce8fa"/>
+            <circle cx="400" cy="180" r="12" fill="#eef2f6"/>
+          </g>
+          <text x="52" y="137" fill="#8fa0b4" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">CLASSIC BOARD GAME</text>
+          <text x="50" y="181" fill="#f3f6fa" font-family="Arial, sans-serif" font-size="31" font-weight="700">Ludo</text>
+          <text x="52" y="207" fill="#98a6b8" font-family="Arial, sans-serif" font-size="14">A strategy game for everyone</text>
+          <rect x="52" y="231" width="84" height="27" rx="13.5" fill="#14251f" stroke="#28503e"/>
+          <text x="68" y="249" fill="#78d8ae" font-family="Arial, sans-serif" font-size="12">PYTHON</text>
         </svg>
       `),
   },
@@ -306,52 +322,52 @@ export const projects: ProjectItem[] = [
       encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
           <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#78d7ff"/>
-              <stop offset="100%" stop-color="#dff7ff"/>
+            <linearGradient id="jump-bg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#17253a"/>
+              <stop offset="100%" stop-color="#0b111c"/>
             </linearGradient>
-            <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#4e8b39"/>
-              <stop offset="100%" stop-color="#2d5b27"/>
+            <linearGradient id="jump-platform" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#253b54"/>
+              <stop offset="100%" stop-color="#1a2c42"/>
             </linearGradient>
+            <filter id="jump-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="12"/>
+            </filter>
           </defs>
-          <rect width="800" height="360" fill="url(#sky)"/>
-          <circle cx="650" cy="55" r="32" fill="#fffdf1" opacity="0.8"/>
-          <path d="M0 210 Q200 170 380 220 T800 210 V360 H0 Z" fill="#8fc1a2"/>
-          <path d="M0 240 Q180 210 320 230 T800 250 V360 H0 Z" fill="#5d9b53"/>
-          <path d="M110 250 L200 150 L260 250 Z" fill="#3d6d3d"/>
-          <path d="M530 250 L640 120 L730 250 Z" fill="#3d6d3d"/>
-          <rect x="60" y="255" width="680" height="70" fill="url(#ground)"/>
-          <g>
-            <path d="M110 250 L155 170 L175 250 Z" fill="#2e4d25"/>
-            <path d="M135 170 L160 145 L175 170 Z" fill="#2e4d25"/>
-            <path d="M95 250 L130 270 L140 250 Z" fill="#3d6d3d"/>
+          <rect width="800" height="360" fill="url(#jump-bg)"/>
+          <circle cx="562" cy="130" r="86" fill="#4d9dff" opacity=".11" filter="url(#jump-glow)"/>
+          <circle cx="674" cy="56" r="1.5" fill="#dceaff" opacity=".8"/>
+          <circle cx="614" cy="88" r="1" fill="#dceaff" opacity=".65"/>
+          <circle cx="743" cy="123" r="1.5" fill="#dceaff" opacity=".65"/>
+          <circle cx="530" cy="47" r="1" fill="#dceaff" opacity=".7"/>
+          <path d="M0 247 Q130 222 260 247 T520 240 T800 227 V360 H0 Z" fill="#111d2b"/>
+          <path d="M0 285 Q130 265 260 285 T520 276 T800 264 V360 H0 Z" fill="#0c1521"/>
+          <text x="52" y="112" fill="#8fa0b4" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">2D PLATFORMER</text>
+          <text x="50" y="156" fill="#f3f6fa" font-family="Arial, sans-serif" font-size="31" font-weight="700">Double Jump</text>
+          <text x="52" y="183" fill="#98a6b8" font-family="Arial, sans-serif" font-size="14">Timing, movement &amp; momentum</text>
+          <rect x="52" y="207" width="55" height="27" rx="13.5" fill="#172337" stroke="#304665"/>
+          <text x="68" y="225" fill="#8fc2ff" font-family="Arial, sans-serif" font-size="12">JAVA</text>
+          <g opacity=".55">
+            <rect x="492" y="242" width="92" height="12" rx="6" fill="#273c53"/>
+            <rect x="628" y="188" width="110" height="12" rx="6" fill="#273c53"/>
           </g>
-          <g>
-            <path d="M585 250 L630 170 L650 250 Z" fill="#2e4d25"/>
-            <path d="M610 170 L635 145 L650 170 Z" fill="#2e4d25"/>
-            <path d="M570 250 L605 270 L615 250 Z" fill="#3d6d3d"/>
+          <rect x="450" y="300" width="350" height="60" rx="8" fill="url(#jump-platform)"/>
+          <rect x="450" y="298" width="350" height="3" rx="1.5" fill="#61aaff" opacity=".75"/>
+          <rect x="610" y="245" width="142" height="12" rx="6" fill="url(#jump-platform)"/>
+          <rect x="610" y="243" width="142" height="3" rx="1.5" fill="#61aaff" opacity=".7"/>
+          <rect x="488" y="202" width="104" height="12" rx="6" fill="url(#jump-platform)"/>
+          <rect x="488" y="200" width="104" height="3" rx="1.5" fill="#61aaff" opacity=".65"/>
+          <path d="M576 282 C586 250 606 220 640 204" fill="none" stroke="#61aaff" stroke-width="2" stroke-dasharray="5 7" opacity=".8"/>
+          <path d="M628 205 L641 201 L638 215" fill="none" stroke="#61aaff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(555 235)">
+            <rect x="0" y="0" width="32" height="38" rx="8" fill="#60a5fa"/>
+            <rect x="7" y="-13" width="18" height="18" rx="6" fill="#dceaff"/>
+            <rect x="-4" y="31" width="14" height="7" rx="3.5" fill="#c6d9f1"/>
+            <rect x="22" y="31" width="14" height="7" rx="3.5" fill="#c6d9f1"/>
+            <circle cx="19" cy="-4" r="2" fill="#17253a"/>
           </g>
-          <g transform="translate(340 150)">
-            <circle cx="25" cy="0" r="20" fill="#ecb96f"/>
-            <path d="M10 18 L30 18 L35 48 L4 48 Z" fill="#1d3b5a"/>
-            <path d="M25 18 L55 18 L60 62 L28 62 Z" fill="#0f2d46"/>
-            <path d="M-8 30 L8 14 L10 46 L-10 50 Z" fill="#0f2d46"/>
-            <path d="M55 35 L72 20 L72 52 L54 58 Z" fill="#0f2d46"/>
-            <path d="M16 52 L32 52 L40 90 L12 90 Z" fill="#f0b351"/>
-            <circle cx="38" cy="0" r="8" fill="#ffd17a"/>
-            <path d="M40 10 L47 18 L38 20 Z" fill="#2a5b2a"/>
-          </g>
-          <g>
-            <circle cx="110" cy="320" r="18" fill="#f0d34b"/>
-            <text x="100" y="325" fill="#fff" font-size="14" font-family="Arial" font-weight="700">1</text>
-            <circle cx="690" cy="320" r="18" fill="#f0d34b"/>
-            <text x="680" y="325" fill="#fff" font-size="14" font-family="Arial" font-weight="700">1</text>
-          </g>
-          <g>
-            <path d="M565 198 L590 170 L615 198" stroke="#ffdd75" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M640 230 L670 170" stroke="#ffdd75" stroke-width="8" fill="none" stroke-linecap="round"/>
-          </g>
+          <circle cx="682" cy="222" r="8" fill="#f2bd62"/>
+          <circle cx="682" cy="222" r="15" fill="#f2bd62" opacity=".12"/>
         </svg>
       `),
   },

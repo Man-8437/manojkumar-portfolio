@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Star, ShieldCheck, Zap } from "lucide-react";
 import PageHeader from "./PageHeader";
+import CursorGlow from "./CursorGlow";
 import AboutSection from "./sections/AboutSection";
 import EducationSection from "./sections/EducationSection";
 import SkillsSection from "./sections/SkillsSection";
@@ -33,14 +33,25 @@ export default function Home() {
   const typingCursor = displayText.length < typingText.length ? "|" : "";
 
   return (
-    <main className="min-h-screen bg-[#030712] text-slate-100">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8">
+    <main className="portfolio-theme relative isolate min-h-screen bg-transparent text-slate-100">
+      <CursorGlow />
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8">
         <PageHeader />
 
-        <section id="home" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-8 shadow-2xl shadow-cyan-500/10 sm:p-12 lg:p-16">
+        <section id="home" className="scroll-mt-28 relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 p-6 shadow-2xl shadow-cyan-500/10 sm:p-10 lg:min-h-[min(680px,calc(100svh-9rem))] lg:p-14">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.1),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(168,85,247,0.15),_transparent_35%)]" />
-          <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="relative flex min-h-full min-w-0 flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full"
+            >
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                Looking for internship opportunities
+              </div>
+
               {/* Commercial Success Callout Pill */}
               <Link
                 href="#projects"
@@ -51,11 +62,11 @@ export default function Home() {
                 <span className="text-emerald-400 group-hover:translate-x-0.5 transition-transform">→</span>
               </Link>
 
-              <p className="mb-2 text-sm uppercase tracking-[0.4em] text-cyan-300">Computer Science & Business Systems Student</p>
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-7xl">
+              <p className="mb-4 text-xs font-medium uppercase tracking-[0.32em] text-cyan-300 sm:text-sm">Computer Science &amp; Business Systems Student</p>
+              <h1 className="text-5xl font-semibold leading-[1.04] tracking-tight sm:text-6xl lg:text-8xl">
                 Manojkumar <span className="text-cyan-300">Patil</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-lg text-slate-300 sm:text-xl">
+              <p className="mt-6 min-h-8 max-w-3xl text-base leading-7 text-slate-300 sm:text-xl">
                 {displayText}
                 <span className="ml-1 text-cyan-300">{typingCursor}</span>
               </p>
@@ -71,17 +82,17 @@ export default function Home() {
               </div>
 
               {/* Social Links */}
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a href="https://github.com/Man-8437" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full border border-cyan-400/30 bg-slate-950/60 px-4 py-2 text-sm text-slate-100 transition hover:bg-cyan-500/20">
-                  <FaGithub className="mr-2 h-4 w-4" /> GitHub
+              <div className="mt-6 inline-flex flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/40 p-2">
+                <a href="https://github.com/Man-8437" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-2 text-sm text-slate-100 transition hover:border-cyan-400/30 hover:bg-cyan-500/10">
+                  <FaGithub className="h-4 w-4" /> GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/manoj-kumar-patil-a0a314284" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full border border-cyan-400/30 bg-slate-950/60 px-4 py-2 text-sm text-slate-100 transition hover:bg-cyan-500/20">
-                  <FaLinkedin className="mr-2 h-4 w-4" /> LinkedIn
+                <a href="https://www.linkedin.com/in/manoj-kumar-patil-a0a314284" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-2 text-sm text-slate-100 transition hover:border-cyan-400/30 hover:bg-cyan-500/10">
+                  <FaLinkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </div>
 
               {/* Commercial Proof Metric Badges */}
-              <div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/10 pt-6 max-w-lg">
+              <div className="mt-8 grid max-w-4xl grid-cols-1 gap-3 border-t border-white/10 pt-6 sm:grid-cols-3">
                 <div className="rounded-xl border border-white/10 bg-slate-950/50 p-3 text-center">
                   <div className="text-lg font-bold text-emerald-400 flex items-center justify-center gap-1">
                     <ShieldCheck className="h-4 w-4" /> 100%
@@ -99,14 +110,6 @@ export default function Home() {
                     <Zap className="h-3.5 w-3.5" /> 10x
                   </div>
                   <div className="text-[11px] text-slate-400 mt-0.5">Production Speedup</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="mx-auto w-full max-w-sm">
-              <div className="rounded-[2rem] border border-cyan-400/20 bg-slate-900/70 p-4 shadow-[0_0_60px_rgba(34,211,238,0.15)] backdrop-blur-xl">
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.2),_transparent_60%)] transform-gpu hover:scale-105 transition-shadow duration-500">
-                  <Image src="/profile.jpg" alt="Profile photo" width={600} height={600} className="h-full w-full object-cover" priority />
                 </div>
               </div>
             </motion.div>

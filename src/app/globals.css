@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #f8fafc;
+  --background: #080b12;
+  --foreground: #edf1f7;
+  --surface: #0f141d;
+  --accent: #61aaff;
+  --muted: #9aa4b2;
 }
 
 html {
@@ -12,11 +15,96 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 30%),
-    linear-gradient(135deg, #020617 0%, #030712 45%, #0f172a 100%);
+  background-color: var(--background);
+  background-image: radial-gradient(rgba(121, 155, 190, 0.13) 0.8px, transparent 0.8px);
+  background-size: 34px 34px;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.portfolio-theme {
+  color: var(--foreground);
+}
+
+.portfolio-theme [class*="bg-slate-950"],
+.portfolio-theme [class*="bg-slate-900"],
+.portfolio-theme [class*="bg-white/5"] {
+  background-color: var(--surface) !important;
+}
+
+.portfolio-theme [class*="bg-gradient-to"] {
+  background-image: linear-gradient(135deg, #0d121b 0%, #111824 100%) !important;
+}
+
+.portfolio-theme [class*="bg-[radial-gradient"] {
+  background-image: none !important;
+}
+
+.portfolio-theme [class*="bg-cyan-500/10"] {
+  background-color: #122033 !important;
+}
+
+.portfolio-theme [class*="bg-emerald-500/10"] {
+  background-color: #10251f !important;
+}
+
+.portfolio-theme [class*="bg-amber-500/10"],
+.portfolio-theme [class*="bg-amber-950/20"] {
+  background-color: #241d12 !important;
+}
+
+.portfolio-theme [class*="text-white"],
+.portfolio-theme [class*="text-slate-100"],
+.portfolio-theme [class*="text-slate-200"],
+.portfolio-theme [class*="text-slate-300"] {
+  color: #e5e9ef !important;
+}
+
+.portfolio-theme [class*="text-slate-400"] {
+  color: var(--muted) !important;
+}
+
+.portfolio-theme [class*="text-cyan-"] {
+  color: var(--accent) !important;
+}
+
+.portfolio-theme [class*="text-emerald-"] {
+  color: #47c9a5 !important;
+}
+
+.portfolio-theme [class*="text-amber-"] {
+  color: #f0ad43 !important;
+}
+
+.portfolio-theme [class*="border-white/"] {
+  border-color: #252d39 !important;
+}
+
+.portfolio-theme [class*="border-cyan-"] {
+  border-color: #294361 !important;
+}
+
+.portfolio-theme [class*="border-emerald-"] {
+  border-color: #225342 !important;
+}
+
+.portfolio-theme [class*="border-amber-"] {
+  border-color: #594525 !important;
+}
+
+.portfolio-theme [class*="shadow-cyan-"] {
+  --tw-shadow-color: rgb(70 151 235 / 0.1) !important;
+}
+
+.cursor-follow-glow {
+  background: radial-gradient(circle, rgb(55 129 211 / 0.2) 0%, rgb(55 129 211 / 0.08) 34%, transparent 70%);
+  height: 32rem;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition: left 120ms ease-out, top 120ms ease-out, opacity 240ms ease;
+  width: 32rem;
+  will-change: left, top;
 }
 
 * {
@@ -24,6 +112,22 @@ body {
 }
 
 ::selection {
-  background: rgba(34, 211, 238, 0.35);
+  background: rgb(97 170 255 / 0.32);
   color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cursor-follow-glow {
+    display: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-follow-glow {
+    display: none;
+  }
 }
